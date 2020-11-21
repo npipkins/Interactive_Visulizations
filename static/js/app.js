@@ -1,7 +1,7 @@
 //READ IN JSON DATA FILE    
 d3.json("samples.json").then((importeddata) => {
   var data = importedData;
-  
+
   //SORT TO GET HIGHEST VALUES    
   var sortedData = data.samples.sample_values.sort((a,b) => b.sample_values - a.sample_values);
   
@@ -26,14 +26,7 @@ d3.json("samples.json").then((importeddata) => {
   
   //DEFINE PLOT LAYOUTS
   var layoutBar = {
-      title: "Top 10 OTUs"
-      xaxis: {
-          title: "Bacteria"
-      }
-  };
-  
-  var layoutBubble = {
-      title: "Top 10 OTUs"
+      title: "Top 10 OTUs",
       xaxis: {
           title: "Bacteria"
       }
@@ -43,6 +36,6 @@ d3.json("samples.json").then((importeddata) => {
   Plotly.newPlot("bar", dataBar, layoutBar);
   
   //PLOT THE BAR CHART TO THE BUBBLE CHART DIV TAG
-  Plotly.newPlot("bubble", dataBubble, layoutBubble);
-}
-  
+  Plotly.newPlot("bubble", dataBubble);
+
+});
