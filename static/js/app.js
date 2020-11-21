@@ -12,13 +12,18 @@ d3.json("samples.json").then((importeddata) => {
   var trace1 = {
     type: "bar",
     orientation: "h",
+    hover_name: top10_OTU.map(d => top10_OTU.otu_labels),
     x: top10_OTU.map(d => d.otu_ids),
     y: top10_OTU.map(d => d.sample_values)
       };
-      
+
   //TRACE2 FOR BUBBLE CHART
   var trace2 = {
       type: "bubble",
+      mode: 'markers',
+      marker_size: top10_OTU.map(d => top10_OTU.sample_values),
+      marker_color: top10_OTU.map(d => top10_OTU.otu_ids),
+      hover_text: top10_OTU.map(d => top10_OTU.otu_labels),
       x: top10_OTU.map(d => d.otu_ids),
       y: top10_OTU.map(d => d.sample_values)
   };
