@@ -7,13 +7,15 @@ d3.json("samples.json").then((importeddata) => {
   
   //SLICE TO GRAB A CERTAIN AMOUNT OF OBJECTS
   var top10_OTU = sortedData.slice(0,10);
-  //TRACE1 FOR BAR CHAR
+
+  //TRACE1 FOR BAR CHART
   var trace1 = {
     type: "bar",
     orientation: "h",
     x: top10_OTU.map(d => d.otu_ids),
     y: top10_OTU.map(d => d.sample_values)
       };
+      
   //TRACE2 FOR BUBBLE CHART
   var trace2 = {
       type: "bubble",
@@ -31,7 +33,7 @@ d3.json("samples.json").then((importeddata) => {
           title: "Bacteria"
       }
   };
-  
+
   //PLOT THE BAR CHART TO THE BAR CHART DIV TAG
   Plotly.newPlot("bar", dataBar, layoutBar);
   
