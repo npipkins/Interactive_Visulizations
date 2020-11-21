@@ -1,6 +1,7 @@
 //READ IN JSON DATA FILE    
-d3.json("samples.json").then((data) => {
-
+d3.json("samples.json").then((importeddata) => {
+  var data = importedData;
+  
   //SORT TO GET HIGHEST VALUES    
   var sortedData = data.samples.sample_values.sort((a,b) => b.sample_values - a.sample_values);
   
